@@ -1,0 +1,179 @@
+// This file is to write your own styles in.
+// Everything will compile to css/lunar.css & lunar.min.css.
+// But first, let's import the base Lunar file.
+@import 'lunar-base.less';
+
+html,
+body {
+	height: 100%;
+	min-height: 100%;
+	color: #FFF;
+	background-color: @main-bg;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+// ----- COVER SECTION
+
+header {
+	.full-height;
+	.container-fullscreen;	
+	.centered-text;
+}
+
+header .gb-logo {
+	.flex-center;
+	.container-fullscreen;
+	.full-height;
+
+	background-image: url('../img/gb-logo.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 75%;
+}
+
+.bwg-coming-soon {
+	text-transform: uppercase;
+	font-weight: 100;
+	font-size: 3rem;
+	padding-top: 7em;
+}
+
+.bwg-coming-soon > p {
+	margin-top: .75em;
+	margin-bottom: .5em;
+	font-size: 4rem;
+	font-weight:100 !important;
+}
+
+.bwg-coming-soon > a {
+	display: inline-block;
+	font-size: 2rem;
+	font-weight: 400;
+	padding: .5rem;
+	border-radius: 100%;
+	border: 2px dotted white;
+	color: white;
+	width: inherit;
+	line-height: 2rem;
+	opacity: .5;
+	transition: all .2s ease-in-out;
+}
+
+.bwg-coming-soon > a:hover {
+	color: @gold;
+	opacity: 1;
+}
+
+// ----- MAIN CONTENT CONTAINER
+
+main {
+	.container-fullscreen;
+	.full-height;
+}
+
+// ----- NAVIGATION & BRANDNAME
+
+#nav {
+	.container-fullscreen;
+	border-bottom: 1px dotted rgba(255,255,255,0.15);
+}
+
+#nav .brandname {
+	text-align: left;
+	float: left;
+	color: white;
+}
+
+#nav .brandname a {
+	display: block;
+	color: white;
+	margin: 0;
+	padding: 1rem;
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+#nav .navigation {
+	display: block;
+	text-align: right;
+	font-size: 1.5rem;
+	padding: 1.25rem;
+	margin: 0;
+}
+
+#nav .navigation li {
+	display: inline-block;
+}
+
+#nav .navigation li a {
+	color: white;
+	text-transform: uppercase;
+	padding: .5rem;
+}
+
+// ----- SECTIONS
+
+section {
+	.container-smaller;
+	padding-top: 1.5em;
+}
+
+// ----- SECTIONS - BLOG
+
+article.blog-post {
+	.row;
+	margin-bottom: 2em;
+}
+
+article .blog-post-header {
+	.row;
+	.centered-text;
+	padding-bottom: 1rem;
+}
+
+article .blog-post-header h2 {
+	font-size: 2.05rem;
+	font-weight: 400;
+	line-height: 2rem;
+}
+
+article .blog-post-header span {
+	line-height: 2rem;
+	color: #BBB;
+	font-weight: 300;
+}
+
+article .blog-post-content p {
+	font-size: 1.5rem;
+}
+
+// ----- FOOTER
+
+footer {
+	.container-fullscreen;
+}
+
+footer .foot {
+	background-color: #111;
+}
+
+footer .footer-left,
+footer .footer-right {
+	.col6;
+}
+
+footer .footer-left {
+	text-align: left;
+}
+
+footer .footer-right {
+	text-align: right;
+}
+
+footer p {
+	padding: 1rem 0;
+	margin: 0;
+	color: @gold;
+	font-size: 1rem;
+}
