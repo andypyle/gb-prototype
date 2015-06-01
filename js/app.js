@@ -2,6 +2,7 @@ $(document).ready(function(){
 	var comingsoon = $('.bwg-coming-soon');
 	var scrollBtn = $('.scroller');
 	var navigation = $('#nav');
+	var mobileToggle = $('.mob-nav');
 
 	//navigation.hide();
 	comingsoon.hide();
@@ -13,7 +14,7 @@ $(document).ready(function(){
 		if(wScroll >= (navigation.offset().top - ($(this).height()))){
 			
 			navigation.css({
-				'opacity': wScroll * 0.0015
+				'opacity': wScroll * 0.0025
 			});
 			
 			navigation.height(wScroll / 4);
@@ -22,14 +23,16 @@ $(document).ready(function(){
 			}
 		}
 		//console.log($('main').position().top);
-	});
-	
-
-	
+	});	
 
 	scrollBtn.click(function(e){
 		e.preventDefault();
 		var getHref = $($(this).attr('href'));
 		getHref.velocity("scroll", 1100);
+	});
+
+	mobileToggle.click(function(e){
+		e.preventDefault();
+		$('.navigation').stop().slideToggle();
 	});
 });
