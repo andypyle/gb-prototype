@@ -62,13 +62,16 @@ header .gb-logo {
 .bwg-coming-soon > a:hover {
 	color: @gold;
 	opacity: 1;
+	border: 2px dotted @gold;
+	box-shadow: 0px 0px 15px fade(@gold, 20%), 
+			inset 0px 0px 35px fade(@gold, 10%);
 }
 
 // ----- MAIN CONTENT CONTAINER
 
 main {
 	.container-fullscreen;
-	.full-height;
+	//.full-height;
 }
 
 // ----- NAVIGATION & BRANDNAME
@@ -76,6 +79,9 @@ main {
 #nav {
 	.container-fullscreen;
 	border-bottom: 1px dotted rgba(255,255,255,0.15);
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
 }
 
 #nav .brandname {
@@ -110,6 +116,32 @@ main {
 	color: white;
 	text-transform: uppercase;
 	padding: .5rem;
+	position: relative;
+	transition: all .25s ease-in-out;
+}
+
+#nav .navigation li a:after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 0%;
+	height: 15%;
+	bottom: 0;
+	left: 0;
+	background-color: @gold;
+	z-index: -1;
+	transition: all .25s ease-in-out;
+}
+
+#nav .navigation li a:hover {
+	color: @gold;
+	transition: all .25s ease-in-out;
+}
+
+#nav .navigation li a:hover:after {
+	color: @gold;
+	width: 100%;
+	transition: all .25s ease-in-out;
 }
 
 // ----- SECTIONS
@@ -123,7 +155,13 @@ section {
 
 article.blog-post {
 	.row;
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
+	padding: 2em 0;
+
+}
+
+article.blog-post + article.blog-post {
+	border-top: 1px dotted fade(@gold, 25%);	
 }
 
 article .blog-post-header {
@@ -144,14 +182,51 @@ article .blog-post-header span {
 	font-weight: 300;
 }
 
+article .blog-post-content {
+	position: relative;
+	display: block;
+}
+
 article .blog-post-content p {
 	font-size: 1.5rem;
+}
+
+// ----- BLOG POST - IMAGES
+
+article.images-post .blog-post-content img {
+	.centered-block;
+	display: block;
+	padding: 1.25em;
+}
+
+// ----- BLOG POST - VIDEO
+
+.video-container { 
+	display: block;
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden; 
+	max-width: 100%; 
+} 
+
+.video-container iframe, 
+.video-container object, 
+.video-container embed { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+	border-radius: .6em;
 }
 
 // ----- FOOTER
 
 footer {
 	.container-fullscreen;
+	display: block;
+
 }
 
 footer .foot {

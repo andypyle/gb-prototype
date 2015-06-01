@@ -476,6 +476,9 @@ a {
 .centered-text {
   text-align: center;
 }
+.centered-block {
+  margin: 0 auto;
+}
 .flex-center {
   display: -webkit-box;
   display: -webkit-flex;
@@ -552,19 +555,22 @@ header .gb-logo {
           transition: all 0.2s ease-in-out;
 }
 .bwg-coming-soon > a:hover {
-  color: #dbf4a7;
+  color: #e2ef70;
   opacity: 1;
+  border: 2px dotted #e2ef70;
+  box-shadow: 0px 0px 15px rgba(226, 239, 112, 0.2), inset 0px 0px 35px rgba(226, 239, 112, 0.1);
 }
 main {
   margin: 0 auto;
   width: 100%;
-  height: 100%;
-  min-height: 100%;
 }
 #nav {
   margin: 0 auto;
   width: 100%;
   border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
 }
 #nav .brandname {
   text-align: left;
@@ -594,6 +600,33 @@ main {
   color: white;
   text-transform: uppercase;
   padding: .5rem;
+  position: relative;
+  -webkit-transition: all 0.25s ease-in-out;
+          transition: all 0.25s ease-in-out;
+}
+#nav .navigation li a:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0%;
+  height: 15%;
+  bottom: 0;
+  left: 0;
+  background-color: #e2ef70;
+  z-index: -1;
+  -webkit-transition: all 0.25s ease-in-out;
+          transition: all 0.25s ease-in-out;
+}
+#nav .navigation li a:hover {
+  color: #e2ef70;
+  -webkit-transition: all 0.25s ease-in-out;
+          transition: all 0.25s ease-in-out;
+}
+#nav .navigation li a:hover:after {
+  color: #e2ef70;
+  width: 100%;
+  -webkit-transition: all 0.25s ease-in-out;
+          transition: all 0.25s ease-in-out;
 }
 section {
   margin: 0 auto;
@@ -602,7 +635,11 @@ section {
 }
 article.blog-post {
   box-sizing: border-box;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
+  padding: 2em 0;
+}
+article.blog-post + article.blog-post {
+  border-top: 1px dotted rgba(226, 239, 112, 0.25);
 }
 article .blog-post-header {
   box-sizing: border-box;
@@ -619,12 +656,40 @@ article .blog-post-header span {
   color: #BBB;
   font-weight: 300;
 }
+article .blog-post-content {
+  position: relative;
+  display: block;
+}
 article .blog-post-content p {
   font-size: 1.5rem;
+}
+article.images-post .blog-post-content img {
+  margin: 0 auto;
+  display: block;
+  padding: 1.25em;
+}
+.video-container {
+  display: block;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: .6em;
 }
 footer {
   margin: 0 auto;
   width: 100%;
+  display: block;
 }
 footer .foot {
   background-color: #111;
@@ -642,6 +707,6 @@ footer .footer-right {
 footer p {
   padding: 1rem 0;
   margin: 0;
-  color: #dbf4a7;
+  color: #e2ef70;
   font-size: 1rem;
 }
