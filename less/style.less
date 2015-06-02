@@ -9,7 +9,7 @@ body {
 	min-height: 100%;
 	color: #FFF;
 	background-color: @main-bg;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Josefin Sans', sans-serif;	
 }
 
 // ----- COVER SECTION
@@ -24,22 +24,40 @@ header {
 	display: block;
 	width: 100%;
 	height: 100%;	
-	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727));
 
 	background-image: url('../img/cluster.png');
-	background-color: fade(black, 75%);
-	-webkit-background-blend-mode: multiply;
-	background-blend-mode: multiply;
-	background-size: 70%;
+	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
 	overflow: hidden;
 	position: absolute;
-	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 0;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		background-position: center top;
+		background-size: 60%;
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		background-size: 75%;
+		background-position: center top;
+	}
+}
+
+.gb-fade {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: fade(black, 70%);
+
+	@media only screen and(max-width:@bp-smallest){
+		background-color: fade(black, 25%);
+	}
 }
 
 header .gb-logo {
@@ -48,7 +66,7 @@ header .gb-logo {
 	.full-height;
 
 	position: relative;
-	z-index: 0;
+	z-index: 2;
 
 	background-image: url('../img/gb-logo.png');
 	background-repeat: no-repeat;
@@ -89,6 +107,10 @@ header .gb-logo {
 	font-weight:100 !important;
 
 	text-shadow: 1px 0px 9px black;
+	//background-color: black;
+
+	padding-left: .15em;
+	padding-right: .15em;
 
 	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
 		font-size: 2.5rem;
@@ -111,8 +133,10 @@ header .gb-logo {
 	color: white;
 	width: inherit;
 	line-height: 2rem;
-	opacity: .5;
+	opacity: .7;
 	transition: all .2s ease-in-out;
+
+	background-color: fade(black, 50%);
 
 	@media only screen and(max-width:@bp-medium){
 		font-size: 2.75rem;
@@ -145,7 +169,7 @@ main {
 	overflow: visible;
 	opacity: 0;
 	position:relative;
-	z-index: -1;
+	//z-index: -1;
 }
 
 #nav .brandname {
@@ -178,7 +202,7 @@ main {
 		left: 0;
 		right: 0;
 		top: 56px;
-		z-index: 100;
+		z-index: 200;
 		text-align: center;	
 		background-color: #000;	
 	}
@@ -265,7 +289,11 @@ section {
 
 // ----- SECTIONS - BLOG
 
-#blog {
+#blog,
+#about,
+#tour,
+#music,
+#contact {
 	padding-top: 4em;
 }
 
@@ -342,6 +370,112 @@ article.images-post .blog-post-content img {
 	border-radius: .6em;
 }
 
+// ----- SECTION - US
+
+.gb-bio {
+
+}
+
+.gb-bio-header {
+	.col12;
+	text-align: right;
+}
+
+.gb-bio-left {
+	.col4;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		.col5;
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		.col12;
+	}
+}
+
+.gb-bio-left > img {
+	.centered-block;
+}
+
+.gb-bio-right {
+	.col8;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		.col7;
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		.col12;
+	}
+}
+
+.gb-bio-right > p {
+	font-size: 1.5rem;
+}
+
+
+// ----- SECTION - MUSIC
+
+#music {
+	padding-bottom: 4em;
+}
+
+#music .album-title {
+	.col12;
+	.centered-text;
+}
+
+#music .album-title h2 {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+#music .album-art {
+	.col5;
+}
+
+#music .album-tracks {
+	.col7;
+}
+
+#music .album-tracklist {
+	.col12;
+	display: block;
+	padding: 0;
+}
+
+#music .album-tracklist li {
+	display: block;
+}
+
+#music .track-number {
+	.col1;
+	text-align: right;
+	font-weight: bold;
+}
+
+#music .track-title {
+	.col9;
+	text-align: left;
+}
+
+#music .track-play {
+	.col2;
+	.centered-text;
+}
+
+#music .track-play a {
+	color: #FFF;
+	display: inline-block;
+	transform: scale(1);
+	transition: all .1s ease-in-out;
+	&:hover {
+		color: @gold;
+		transform: scale(1.25, 1.25);
+		cursor: pointer;
+	}
+}
+
 // ----- FOOTER
 
 footer {
@@ -355,21 +489,74 @@ footer .foot {
 }
 
 footer .footer-left,
-footer .footer-right {
-	.col6;
+footer .footer-right,
+footer .footer-center {
+	.col4;
+	@media only screen and(max-width:@bp-smallest){
+		.col12;
+	}
 }
 
 footer .footer-left {
 	text-align: left;
+	@media only screen and(max-width:@bp-smallest){
+		display:none;
+	}
+}
+
+footer .footer-center .social {
+	.centered-text;
+	.centered-block;
+	padding: .5rem 0;
+	@media only screen and(max-width:@bp-smallest){
+		padding: .25rem;
+	}
+}
+
+footer .footer-center .social li {
+	.centered-text;
+	display: inline-block;
+}
+
+footer .footer-center .social li a {
+
+	display: inline-block;
+	color: #FFF;
+	padding: .25rem;
+	transition: all .25s ease-in-out;
+	@media only screen and(max-width:@bp-smallest){
+		font-size: 1.5rem;
+		padding: .45rem;
+	}
+	&:hover {
+		color: @gold;
+		transition: all .15s ease-in-out;
+		transform: translatey(-.225rem);
+	}
 }
 
 footer .footer-right {
 	text-align: right;
+	@media only screen and(max-width:@bp-smallest){
+		.centered-text;
+	}
+}
+
+footer .footer-right p.credits-mobile {
+	display: none;
+	@media only screen and(max-width:@bp-smallest){
+		display: block !important;
+		padding-bottom: 1rem;
+	}
 }
 
 footer p {
 	padding: 1rem 0;
 	margin: 0;
-	color: @gold;
-	font-size: 1rem;
+	color: #DDD;
+	font-size: .85rem;
+	@media only screen and(max-width:@bp-smallest){
+		padding: .25rem 0;
+		font-size: 1.2rem;
+	}
 }

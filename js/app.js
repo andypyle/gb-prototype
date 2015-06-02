@@ -1,48 +1,6 @@
-$(document).ready(function(){
-	var comingsoon = $('.bwg-coming-soon');
-	var scrollBtn = $('.scroller');
-	var navigation = $('#nav');
-	var mobileToggle = $('.mob-nav');
-
-	//navigation.hide();
-	comingsoon.hide();
-	comingsoon.velocity("fadeIn", { duration: 3500 });
-
-
-	$(window).scroll(function(){
-		var wScroll = $(this).scrollTop();
-		if(wScroll >= (navigation.offset().top - ($(this).height()))){
-			
-			navigation.css({
-				'opacity': wScroll * 0.0025,
-				'position':'fixed',
-				'z-index':100,
-				'top':0,
-				'background-color':'black'
-			});
-			
-			//navigation.height(wScroll / 4);
-			navigation.height(wScroll / 5);
-			if(navigation.height() >= $('.brandname').outerHeight()){
-				navigation.height($('.brandname').outerHeight());
-				navigation.css({
-					
-				});
-			}
-		}
-		//console.log($('main').position().top);
-	});	
-
-	scrollBtn.click(function(e){
-		e.preventDefault();
-		var getHref = $($(this).attr('href'));
-		getHref.velocity("scroll", {
-			duration: 1100,
-			offset: -($('.brandname').outerHeight() / 10)});
+var musicApp = angular.module('gbMusic', ['plangular'])
+	.config(function(plangularConfigProvider){
+		plangularConfigProvider.clientId = '544a4d26fb8fb78de34e2c7086e4638a';
 	});
-
-	mobileToggle.click(function(e){
-		e.preventDefault();
-		$('.navigation').stop().slideToggle();
-	});
-});
+	
+var tourApp = angular.module('gbTour', []);
