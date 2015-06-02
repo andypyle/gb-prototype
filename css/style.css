@@ -641,7 +641,7 @@ main {
     left: 0;
     right: 0;
     top: 56px;
-    z-index: 40;
+    z-index: 100;
     text-align: center;
     background-color: #000;
   }
@@ -727,6 +727,9 @@ section {
     width: 82%;
   }
 }
+#blog {
+  padding-top: 4em;
+}
 article.blog-post {
   box-sizing: border-box;
   margin-bottom: 1.5em;
@@ -739,6 +742,7 @@ article .blog-post-header {
   box-sizing: border-box;
   text-align: center;
   padding-bottom: 1rem;
+  text-transform: uppercase;
 }
 article .blog-post-header h2 {
   font-size: 2.05rem;
