@@ -882,9 +882,21 @@ article.images-post .blog-post-content img {
 #music {
   padding-bottom: 4em;
 }
+#music .music-loading {
+  text-align: center;
+}
+#music .music-loading i {
+  margin-top: 2em;
+  color: #e2ef70;
+}
 #music .album-title {
   width: 100%;
   text-align: center;
+}
+@media only screen and (max-width: 400px) {
+  #music .album-title {
+    font-size: .65rem;
+  }
 }
 #music .album-title h2 {
   text-transform: uppercase;
@@ -893,8 +905,18 @@ article.images-post .blog-post-content img {
 #music .album-art {
   width: 39.91666667%;
 }
+@media only screen and (max-width: 400px) {
+  #music .album-art {
+    width: 100%;
+  }
+}
 #music .album-tracks {
   width: 57.08333333%;
+}
+@media only screen and (max-width: 400px) {
+  #music .album-tracks {
+    width: 100%;
+  }
 }
 #music .album-tracklist {
   width: 100%;
@@ -913,9 +935,19 @@ article.images-post .blog-post-content img {
   width: 74.25%;
   text-align: left;
 }
+@media only screen and (max-width: 400px) {
+  #music .track-title {
+    width: 48.5%;
+  }
+}
 #music .track-play {
   width: 14.16666667%;
   text-align: center;
+}
+@media only screen and (max-width: 400px) {
+  #music .track-play {
+    width: 31.33333333%;
+  }
 }
 #music .track-play a {
   color: #FFF;

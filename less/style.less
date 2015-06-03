@@ -420,9 +420,25 @@ article.images-post .blog-post-content img {
 	padding-bottom: 4em;
 }
 
+#music .music-loading {
+	.centered-text;
+}
+
+#music .music-loading i {
+	margin-top: 2em;
+	color: @gold;
+}
+
 #music .album-title {
 	.col12;
 	.centered-text;
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		font-size: .65rem;
+	}
 }
 
 #music .album-title h2 {
@@ -432,10 +448,25 @@ article.images-post .blog-post-content img {
 
 #music .album-art {
 	.col5;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		.col12;
+	}
 }
 
 #music .album-tracks {
 	.col7;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		.col12;
+	}
 }
 
 #music .album-tracklist {
@@ -452,16 +483,40 @@ article.images-post .blog-post-content img {
 	.col1;
 	text-align: right;
 	font-weight: bold;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		
+	}
 }
 
 #music .track-title {
 	.col9;
 	text-align: left;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		.col6;
+	}
 }
 
 #music .track-play {
 	.col2;
 	.centered-text;
+
+	@media only screen and (min-width:@bp-smallest) and (max-width:@bp-small){
+		
+	}
+
+	@media only screen and(max-width:@bp-smallest){
+		.col4;
+	}
 }
 
 #music .track-play a {
